@@ -1,0 +1,17 @@
+{
+  "repo": "harbor-svc-profile-pipe",
+  "thresholds": {
+    "signal": 4,
+    "slack": 2,
+    "confidence": 2,
+    "drag": 5,
+    "ship": 164,
+    "watch": 96
+  },
+  "terms": [
+    "queue pressure",
+    "retry load",
+    "worker slack",
+    "session drift"
+  ]
+}
