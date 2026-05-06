@@ -1,0 +1,73 @@
+{
+  "repo": "harbor-svc-profile-pipe",
+  "language": "Kotlin",
+  "category": "Backend services",
+  "goal": "Design a Kotlin verification harness for profile systems, covering simulation kernel, seeded input scenarios, and failure-oriented tests.",
+  "review_model": {
+    "terms": [
+      "queue pressure",
+      "retry load",
+      "worker slack",
+      "session drift"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "queue pressure",
+      "signal": 75,
+      "slack": 21,
+      "drag": 17,
+      "confidence": 88,
+      "score": 208,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "retry load",
+      "signal": 62,
+      "slack": 41,
+      "drag": 20,
+      "confidence": 55,
+      "score": 160,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "worker slack",
+      "signal": 53,
+      "slack": 38,
+      "drag": 10,
+      "confidence": 72,
+      "score": 186,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "session drift",
+      "signal": 49,
+      "slack": 36,
+      "drag": 24,
+      "confidence": 76,
+      "score": 138,
+      "lane": "watch"
+    },
+    {
+      "name": "stale",
+      "focus": "queue pressure",
+      "signal": 77,
+      "slack": 27,
+      "drag": 21,
+      "confidence": 77,
+      "score": 195,
+      "lane": "ship"
+    }
+  ]
+}
